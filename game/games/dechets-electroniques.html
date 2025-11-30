@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Tri des déchets électroniques - Eco-Monster</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: grab;
+            border: 2px solid #ddd;
+            transition: transform 0.2s, opacity 0.2s;
+            user-select: none;
+        }
+        
+        .item:active {
+            cursor: grabbing;
+            transform: scale(1.05);
+        }
+        
+        .item.dragging {
+            opacity: 0.4;
+        }
+        
+        .item-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .bins {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .bin {
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            min-width: 150px;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            border: 3px solid transparent;
+        }
+        
+        .bin:hover {
+            transform: translateY(-5px);
+        }
+        
+        .monster-face {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        
+        .score-board {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+        
+        #message-area {
+            min-height: 30px;
+            margin: 15px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .success {
+            color: #4caf50;
+        }
+        
+        .error {
+            color: #f44336;
+        }
+        
+        .info {
+            color: #2196f3;
+        }
+        
+        button {
+            font-family: 'Fredoka One', cursive;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            margin: 5px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        #check-btn {
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        #new-game {
+            background-color: #2196f3;
+            color: white;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            color: #2196f3;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+        
+        .back-button:hover {
+            color: #0d8aee;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            .items-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .bins {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .bin {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📱 Tri des déchets électroniques</h1>
+        <div class="score-board">Score : <span id="score">0</span></div>
+    </div>
+
+    <div class="game-container">
+        <div id="message-area">Trie les appareils électroniques dans la bonne poubelle !</div>
+        
+        <div class="bins">
+            <div class="bin" style="background-color: #4caf50;" data-type="recyclable">
+                <div class="monster-face">♻️</div>
+                <p>Recyclage</p>
+                <small>(Téléphones, ordinateurs, câbles...)</small>
+            </div>
+            <div class="bin" style="background-color: #f44336;" data-type="dangerous">
+                <div class="monster-face">☢️</div>
+                <p>Déchets dangereux</p>
+                <small>(Piles, batteries, ampoules...)</small>
+            </div>
+        </div>
+
+        <h2>Objets à trier :</h2>
+        <div class="items-grid" id="items-container">
+            <!-- Les éléments seront ajoutés dynamiquement par JavaScript -->
+        </div>
+        
+        <div>
+            <button id="check-btn">Vérifier</button>
+            <button id="new-game">Nouvelle partie</button>
+        </div>
+        
+        <a href="../index.html" class="back-button">← Retour à l'accueil</a>
+    </div>
+
+    <script src="dechets-electroniques.js"></script>
+</body>
+</html>
