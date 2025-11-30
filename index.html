@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Eco-Monster : Apprends à trier !</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <h1>🌟 Eco-Monster 🌟</h1>
+        <div class="score-board">Score : <span id="score">0</span></div>
+    </div>
+
+    <div class="game-container">
+        <div class="trash-zone" id="trash-source">
+            <div class="trash-item plastic" draggable="true" id="bouteille">🥤</div>
+            <div class="trash-item glass" draggable="true" id="pot">🫙</div>
+            <div class="trash-item paper" draggable="true" id="journal">📰</div>
+        </div>
+
+        <div class="bins-zone">
+            <div class="bin yellow" data-type="plastic,paper">
+                <div class="monster-face">🤤</div>
+                <p>Plastique & Papier</p>
+            </div>
+            
+            <div class="bin green" data-type="glass">
+                <div class="monster-face">😮</div>
+                <p>Verre</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="message-area">Glisse les objets vers le bon monstre !</div>
+
+    <div class="more-games">
+        <h2>🌟 D'autres jeux de tri amusants 🌟</h2>
+        <div class="games-grid">
+            <a href="games/dechets-electroniques.html" class="game-card">
+                <div class="game-icon">📱</div>
+                <h3>Tri des déchets électroniques</h3>
+                <p>Apprends à recycler les appareils électroniques !</p>
+            </a>
+            
+            <a href="games/compostage-magique.html" class="game-card">
+                <div class="game-icon">🍂</div>
+                <h3>Le compostage magique</h3>
+                <p>Découvre ce qui peut être composté !</p>
+            </a>
+            
+            <a href="games/aventure-recyclage.html" class="game-card">
+                <div class="game-icon">♻️</div>
+                <h3>Aventure du recyclage</h3>
+                <p>Parcours la ville pour tout recycler !</p>
+            </a>
+            
+            <a href="games/tri-plage.html" class="game-card">
+                <div class="game-icon">🏖️</div>
+                <h3>Le tri à la plage</h3>
+                <p>Nettoie la plage en triant les déchets !</p>
+            </a>
+            
+            <a href="games/defi-bac-jaune.html" class="game-card">
+                <div class="game-icon">🗑️</div>
+                <h3>Le défi du bac jaune</h3>
+                <p>Sais-tu vraiment ce qui va dans le bac jaune ?</p>
+            </a>
+            
+            <a href="games/tri-emballages.html" class="game-card">
+                <div class="game-icon">📦</div>
+                <h3>Le tri des emballages</h3>
+                <p>Apprends à trier tous les types d'emballages !</p>
+            </a>
+            
+            <a href="games/defi-verre.html" class="game-card">
+                <div class="game-icon">🥛</div>
+                <h3>Le défi du verre</h3>
+                <p>Tout sur le recyclage du verre !</p>
+            </a>
+            
+            <div class="game-card" onclick="alert('Jeu 8 - Le tri en cuisine')">
+                <div class="game-icon">🍽️</div>
+                <h3>Le tri en cuisine</h3>
+                <p>Apprends à trier les déchets alimentaires !</p>
+            </div>
+            
+            <div class="game-card" onclick="alert('Jeu 9 - Le tri dans le jardin')">
+                <div class="game-icon">🌳</div>
+                <h3>Le tri dans le jardin</h3>
+                <p>Découvre comment gérer les déchets verts !</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

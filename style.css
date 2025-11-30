@@ -1,0 +1,154 @@
+body {
+    font-family: 'Fredoka One', cursive;
+    background-color: #e0f7fa; /* Bleu ciel doux */
+    text-align: center;
+    user-select: none; /* Empêche la sélection de texte */
+}
+
+.header {
+    background-color: #ff9800;
+    color: white;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Les objets à jeter (Gros pour être faciles à attraper) */
+.trash-item {
+    font-size: 80px;
+    cursor: grab;
+    margin: 10px;
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+.trash-item:active {
+    transform: scale(1.2); /* Feedback visuel au clic */
+    cursor: grabbing;
+}
+
+.bins-zone {
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Les poubelles (Monstres) */
+.bin {
+    width: 200px;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    border: 5px solid rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+/* Feedback quand on passe au dessus */
+.bin.drag-over {
+    transform: scale(1.1);
+    border-color: white;
+}
+
+.yellow { background-color: #fbc02d; }
+.green { background-color: #43a047; }
+
+.monster-face {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+#message-area {
+    margin-top: 30px;
+    font-size: 24px;
+    color: #006064;
+    padding: 0 20px;
+}
+
+/* Section des jeux supplémentaires */
+.more-games {
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.more-games h2 {
+    color: #ff6f00;
+    margin-bottom: 30px;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.game-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 2px solid #e0e0e0;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.game-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.game-card h3 {
+    color: #2e7d32;
+    margin: 10px 0;
+    font-size: 1.3em;
+}
+
+.game-card p {
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* Styles responsifs */
+@media (max-width: 768px) {
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .more-games h2 {
+        font-size: 1.7em;
+    }
+}
+
+@media (max-width: 480px) {
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-card {
+        padding: 20px 15px;
+    }
+    
+    .game-icon {
+        font-size: 40px;
+    }
+}
